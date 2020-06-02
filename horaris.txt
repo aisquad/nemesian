@@ -1,0 +1,7 @@
+dm, dc, dj
+
+dm 19-22 castellà
+dc 18-21 mates
+dj 18-21 anglés
+
+dm 18-21 val mitjà

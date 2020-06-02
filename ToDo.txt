@@ -1,0 +1,33 @@
+09-12-2010-
+	- arreg-lar el GetParams amb el easy_params (fet 09-12-10)
+		- el label wikimedia utilitza un paràmetre per a parsejar els missatges del rc-pmpta
+	+ utilitzar el files.py per a fitxers
+	
+	* Bot._dispatcher:
+		- afegir el fn.channels (les regexp comencen "(?#re)...") (fet 09-12-10)
+		+ afegir l'access
+		- afegir els showas al .help i -help (fet 09-12-10)
+	+ el prefixe c:{{X}} correpón a [[commons:Template:X]], mentre que c{{u|X}} correspón a [[Special:Contributions/X]]
+	+ denominar els arguments de les funcions fn(bot, c, e)
+	+ fer les regexp de les funcions com a simples cadenes de tes:
+		fn.rule = re.compile("re_pattern") --> fn.rule = "(?#re)pattern"
+		
+12-12-2010
+		algune coses no quadren
+		s'ha de solucionar el parsejament de les línies
+		cur hauria de tornar la línia, l'ordre i el seus parametres, els arguments i les opcions sense distingir entre cur.opts i cur.args etc, és un embolic!
+				* cur = (línia, trigger, ordre, parametres, arguments, opcions)
+				* cur.dict = {"fullline": "", "trigger": "", "cmd": "", "params": "", "args": "", "opts": ""}
+		
+		sembla que hi ha problemes amb les regexp i les plantilles vg: "^$nick!$".
+		no és igual ".where" que "buggybot: where"
+		problemes amb el privnotice, cosa del kvirc???
+		
+11-01-2011
+		el identifiedUser de Event() ha de tornar el nick quan l'usuari esta registrat però no té cloak
+		el nick ha d'anar caviant quan hi ha un canvi de nick
+		només caldria carregar certes dades quan el label és "freenode"
+		certes ordres es podrien saltar per la mateixa raó
+		
+		en wikimedia es podrà proporcionar un nick de freenode al que enviar una senyal.
+		en wikimedia quan es reinicia, el bot avisarà per freenode si se li ha proporcionat el nick o per privat.
